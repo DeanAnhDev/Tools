@@ -7,9 +7,6 @@ cookies = dict(item.split("=", 1) for item in cookie_string.split("; "))
 ct0 = cookies["ct0"]
 authorization = "Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
 
-print(ct0)
-
-
 def get_header(authorization, cookie_string, ct0, referer):
    headers = {
     'accept': '*/*',
