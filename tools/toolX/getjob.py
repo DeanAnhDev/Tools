@@ -62,7 +62,7 @@ def run_job():
         response = get_job()
         if response is None:
             print("⏳ Hết job, nghỉ 30s...")
-            time.sleep(30)
+            job_sleep()
             continue
         job_id = response['data']['id']
         link_job = response['data']['link']
