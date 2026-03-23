@@ -1,6 +1,3 @@
-import time
-
-from action import testcookie
 from curl_cffi import requests
 from golike.util import get_account_id, get_authorization
 from action.follow import follow
@@ -39,7 +36,6 @@ params = {
 session = requests.Session(impersonate="chrome120")
 
 def get_job():
-    testcookie.test_cookie()
     response = session.get('https://gateway.golike.net/api/advertising/publishers/twitter/jobs', params=params, headers=headers)
 
     data = response.json() 

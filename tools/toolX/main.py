@@ -1,9 +1,12 @@
 from action.updatedata import save_authorization, save_cookie, add_proxy, add_account
 from getinfo import choose_account, get_account_golike
 from getjob import run_job
+from action import testcookie
+
 
 def menu():
     get_account_golike()
+    testcookie.test_cookie()
     print("\n===== MENU =====")
     print("1. Chay tools")
     print("2. Cap nhat authorization Golike")

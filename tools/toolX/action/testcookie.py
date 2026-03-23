@@ -46,7 +46,6 @@ session = requests.Session(impersonate="chrome120")
 def test_cookie():
     response = session.get('https://api.x.com/1.1/account/settings.json', params=params, headers=headers)
 
-    print(response.status_code)
     if response.status_code == 200:
         print("Cookie live")
     else:
