@@ -63,7 +63,9 @@ def follow(user_id, session, link):
             data=data
         )
 
-        print(user_id, r.status_code)
-        print(r.text)
+        if r.status_code == 200:
+              return True
+        else:              
+              return False
 
 

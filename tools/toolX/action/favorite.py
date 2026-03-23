@@ -63,8 +63,10 @@ def like_tweet(tweet_id, session, link):
         json=json_data
     )
 
-    print(tweet_id, r.status_code)
-    print(r.text)
+    if r.status_code == 200:
+              return True
+    else:              
+              return False
 
 
 

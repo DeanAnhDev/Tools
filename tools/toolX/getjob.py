@@ -69,17 +69,34 @@ def run_job():
         job_type = response['data']['type']
         object_id = response['data']['object_id']
         job_cost = response['data']['price_per_after_cost']
-        object_data = response['data']['object_data']
-        comment_job = response['data']['comment']
+        comment_job = response['data']['message']
 
-        print(f"🔔 Nhận được job: {job_id} | Link: {link_job} | Type: {job_type} | Cost: {job_cost} VND | object_id: {object_id} | object_data: {object_data}")
+        print(f"🔔 Nhận được job: {job_id} | Link: {link_job} | Type: {job_type} | Cost: {job_cost} VND | object_id: {object_id}")
 
         if job_type == "follow" :
-            follow(object_id, session, link_job)
+            result = follow(object_id, session, link_job)
+            if result == False:
+                send_result = send(job_id, account_id)
+                skip_job_result = skip_job(job_id, account_id, object_id)
+                if send_result and skip_job_result:
+                    print(f"Đã bỏ qua job {job_id} vì không thực hiện được.")
+                    continue
         elif job_type == "like" :
-            like_tweet(object_id, session, link_job)
+            result = like_tweet(object_id, session, link_job)
+            if result == False:
+                send_result = send(job_id, account_id)
+                skip_job_result = skip_job(job_id, account_id, object_id)
+                if send_result and skip_job_result:
+                    print(f"Đã bỏ qua job {job_id} vì không thực hiện được.")
+                    continue
         elif job_type == "comment" :
-            comment(object_id, comment_job, session, link_job)
+            result = comment(object_id, comment_job, session, link_job)
+            if result == False:
+                send_result = send(job_id, account_id)
+                skip_job_result = skip_job(job_id, account_id, object_id)
+                if send_result and skip_job_result:
+                    print(f"Đã bỏ qua job {job_id} vì không thực hiện được.")
+                    continue
         else:
             send_result = send(job_id, account_id)
             skip_job_result = skip_job(job_id, account_id, object_id)

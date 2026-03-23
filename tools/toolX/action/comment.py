@@ -38,6 +38,7 @@ def get_header(authorization, cookie_string, ct0, referer):
     }
     return headers
 
+session = requests.Session(impersonate="chrome120")
 
 def comment(post_id, comment, session, link):
         
@@ -109,7 +110,9 @@ def comment(post_id, comment, session, link):
         json=json_data,
     )
 
-        print(post_id, comment, r.status_code)
-        print(r.text)
- 
-session = requests.Session(impersonate="chrome120")
+        if r.status_code == 200:
+                return True
+        else:              
+                return False
+        
+
