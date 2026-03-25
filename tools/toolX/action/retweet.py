@@ -65,7 +65,7 @@ def retweet(user_id, session, link):
         session.get("https://x.com/home", headers=headers_home)
         human_sleep()
 
-        session.get(link, headers=headers)
+        session.get(link, headers=headers_home)
         human_sleep()
 
         r = session.post(
@@ -107,6 +107,3 @@ def check_retweet(res):
             return True
 
     return False
-
-# result = retweet("2024981547997429792", session, "https://x.com/RobertLee209/status/2024981547997429792")
-# print(result)
