@@ -86,15 +86,15 @@ def run_job():
                 if send_result and skip_job_result:
                     print(f"Đã bỏ qua job {job_id} vì không thực hiện được.")
                     continue
-        elif job_type == "comment" :
-            comment_job = response['lock']['message']
-            result = comment(object_id, comment_job, session, link_job)
-            if result == False:
-                send_result = send(job_id, account_id)
-                skip_job_result = skip_job(job_id, account_id, object_id)
-                if send_result and skip_job_result:
-                    print(f"Đã bỏ qua job {job_id} vì không thực hiện được.")
-                    continue
+        # elif job_type == "comment" :
+        #        comment_job = response['lock']['message']
+        #     result = comment(object_id, comment_job, session, link_job)
+        #     if result == False:
+        #         send_result = send(job_id, account_id)
+        #         skip_job_result = skip_job(job_id, account_id, object_id)
+        #         if send_result and skip_job_result:
+        #             print(f"Đã bỏ qua job {job_id} vì không thực hiện được.")
+        #             continue
         elif job_type == "retweet" :
             result = retweet(object_id, session, link_job)
             if result == False:
