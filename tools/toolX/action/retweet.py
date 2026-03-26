@@ -163,6 +163,3 @@ def check_status_retweet_post(data):
 
         return retweeted
     
-result = retweet("2036703584063205760", session, "https://x.com/thanhye51173089/status/2036703584063205760")
-
-print(result)

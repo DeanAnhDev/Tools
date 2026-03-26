@@ -111,11 +111,8 @@ def run_job():
                 continue
         # Sau khi làm job xong thì gửi
         job_complete_sleep()
-        done =  complete_job(job_id, account_id)
-
-        # Cộng tiền
-        if done:
-            sum_money += job_cost
-            print(f"💰 Đã hoàn thành job: {job_id}| Link: {link_job} | {job_cost} VND | Đã kiếm: {sum_money}")
+        complete_job(job_id, account_id)
+        sum_money += job_cost
+        print(f"💰 Đã hoàn thành job: {job_id}| Link: {link_job} | {job_cost} VND | Đã kiếm: {sum_money}")
 
     print("Đã đạt mục tiêu 1000đ, dừng!")
