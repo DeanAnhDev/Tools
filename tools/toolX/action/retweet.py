@@ -34,7 +34,7 @@ def get_header(authorization, cookie_string, ct0, referer):
 
 session = requests.Session()
 
-def retweet(tweet_id, session, link):
+def retweet(tweet_id, link):
         json_data = {
             'variables': {
                 'tweet_id': tweet_id,

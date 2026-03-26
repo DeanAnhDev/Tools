@@ -34,7 +34,7 @@ def get_header(authorization, cookie_string, ct0, referer):
 
 session = requests.Session()
 
-def follow(user_id, session, link):
+def follow(user_id, link):
         data = {
             'include_profile_interstitial_type': '1',
             'include_blocking': '1',

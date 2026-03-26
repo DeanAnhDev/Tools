@@ -40,7 +40,7 @@ def get_header(authorization, cookie_string, ct0, referer):
    return headers
 
 session = requests.Session()
-def like_tweet(tweet_id, session, link):
+def like_tweet(tweet_id, link):
 
     headers = get_header(
     authorization,
@@ -80,7 +80,7 @@ def like_tweet(tweet_id, session, link):
     result = check_status_like_post(data_check_like_post)
     print (result)
     if result == False:
-        r = session.post("https://x.com/i/api/graphql/lI07N6Otwv1PhnEgXILM7A/FavoriteTweet",
+        session.post("https://x.com/i/api/graphql/lI07N6Otwv1PhnEgXILM7A/FavoriteTweet",
         headers=headers,
         json=json_data
         )

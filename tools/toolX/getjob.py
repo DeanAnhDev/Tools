@@ -71,20 +71,20 @@ def run_job():
         print(f"🔔 Nhận được job: {job_id} | Link: {link_job} | Type: {job_type} | Cost: {job_cost} VND | object_id: {object_id}")
 
         if job_type == "follow" :
-            result = follow(object_id, session, link_job)
+            result = follow(object_id, link_job)
             if result == False:
                 send_result = send(job_id, account_id)
                 skip_job_result = skip_job(job_id, account_id, object_id)
                 if send_result and skip_job_result:
-                    print(f"Đã bỏ qua job {job_id} vì không thực hiện được.")
+                    print(f"Đã bỏ qua job {job_id} vì đã làm rồi.")
                     continue
         elif job_type == "like" :
-            result = like_tweet(object_id, session, link_job)
+            result = like_tweet(object_id, link_job)
             if result == False:
                 send_result = send(job_id, account_id)
                 skip_job_result = skip_job(job_id, account_id, object_id)
                 if send_result and skip_job_result:
-                    print(f"Đã bỏ qua job {job_id} vì không thực hiện được.")
+                    print(f"Đã bỏ qua job {job_id} vì đã làm rồi.")
                     continue
         # elif job_type == "comment" :
         #        comment_job = response['lock']['message']
@@ -96,12 +96,12 @@ def run_job():
         #             print(f"Đã bỏ qua job {job_id} vì không thực hiện được.")
         #             continue
         elif job_type == "retweet" :
-            result = retweet(object_id, session, link_job)
+            result = retweet(object_id, link_job)
             if result == False:
                 send_result = send(job_id, account_id)
                 skip_job_result = skip_job(job_id, account_id, object_id)
                 if send_result and skip_job_result:
-                    print(f"Đã bỏ qua job {job_id} vì không thực hiện được.")
+                    print(f"Đã bỏ qua job {job_id} vì đã làm rồi.")
                     continue
         else:
             send_result = send(job_id, account_id)
